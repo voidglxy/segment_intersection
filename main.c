@@ -19,15 +19,37 @@ int min(int a, int b){
 }
 
 bool checkIntersection(int ax, int ay, int bx, int by, int cx, int cy, int dx, int dy){
-    if((max(ax,bx)>max(cx,dx)&&min(ax,bx)>max(cx,dx))||(min(ax,bx)<min(cx,dx)&&max(ax,bx)<min(cx,dx))){
+    if(max(ax,bx)>=max(cx,dx)&&min(ax,bx)>=max(cx,dx)){
         printf("nope\n");
         return false;
-    }else if((max(ay,by)>max(cy,dy)&&min(ay,by)>max(cy,dy))||(min(ay,by)<min(cy,dy)&&max(ay,by)<min(cy,dy))){
+    }else if(min(ax,bx)<=min(cx,dx)&&max(ax,bx)<=min(cx,dx)){
+        printf("nope\n");
+        return false;
+    }else if(max(ay,by)>=max(cy,dy)&&min(ay,by)>=max(cy,dy)){
+         printf("nope\n");
+        return false;
+    }
+    else if(min(ay,by)<=min(cy,dy)&&max(ay,by)<=min(cy,dy)){
         printf("nope\n");
         return false;
     }
+
+//    if(max(cx,dx)>max(ax,bx)&&min(cx,dx)>max(ax,bx)){
+//        printf("nope\n");
+//        return false;
+//    }else if(min(cx,dx)<min(ax,bx)&&max(cx,dx)<min(ax,bx)){
+//        printf("nope\n");
+//        return false;
+//    }else if(max(cy,dy)>max(ay,by)&&min(cy,dy)>max(ay,by)){
+//         printf("nope\n");
+//        return false;
+//    }
+//    else if(min(cy,dy)<min(ay,by)&&max(cy,dy)<min(ay,by)){
+//        printf("nope\n");
+//        return false;
+//    }
     printf("x and y intersect\n");
-    return false;
+    return true;
 }
 
 int main(){
